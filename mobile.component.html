@@ -1,0 +1,50 @@
+<!--each data in html file is kept in container tage to provide margin-->
+<div class="container">  
+    
+    <div class="jumbotron" align="center" style="color:blueviolet">
+        <h2>Mobile Data</h2>      
+    </div>
+ 
+    <div class='panel panel-primary'>
+  <div class='panel-heading' align='center'>  <!--panel heading-->
+    <h4> Mobiles</h4>
+  </div>
+  <div class='panel-body'>
+    <div class='row'>       
+    <div class='table-responsive'>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <!--Made a hyperlink which calls sortId function when clicked-->
+                    <th><a (click)="sortId()">Mobile Id</a></th>
+                    <!--Made a hyperlink which calls sortName function when clicked-->  
+                    <th><a (click)="sortName()">Mobile Name</a></th>
+                    <!--Made a hyperlink which calls sortPrice function when clicked-->
+                    <th><a (click)="sortPrice()">Mobile Price</a></th>
+                    <th>Action</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <!--i is storing index and ngfor is loop which runs till end of the array-->
+             <tr *ngFor='let product of info,let t=index'>  
+             <td>{{product.mobId}}</td>  <!--Using interpolation to print data-->
+             <td>{{product.mobName| lowercase}}</td> <!--Using interpolation to print data-->
+             <td>{{product.mobPrice | currency:'USD':true:'1.2-2'}}</td> <!--Using interpolation to print data currency pipe is used to print $-->
+             <!--Deletes the row by calling Delete function which sends the index of row clicked--> 
+             <td><button type="button" style="cursor: pointer;" class="btn btn-success" (click)="Delete(t)" data-toggle='tooltip' title='Will delete this item'>Delete</button>        
+             </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+<!--used for undersign-->
+<blockquote class="blockquote-reverse">
+    <footer align='center' style="color:mediumvioletred"><i>Created by</i>:- <span class="glyphicon glyphicon-copyright-mark" align="center"></span> Vaibhav Saxena</footer>
+    </blockquote>
+</div>
+
+
